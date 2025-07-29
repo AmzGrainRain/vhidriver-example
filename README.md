@@ -1,2 +1,3 @@
-# loki-example
-An example of the [Loki driver](https://github.com/hedgar2017/loki-hidriver) usage.
+# vhidriver
+
+An example of the [vhidriver](https://github.com/AmzGrainRain/vhidriver) usage.
