@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.15)
+project(vhidriver-example)
+
+set(BUILD_SHARED_LIBS OFF)
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Debug")
+    message(WARNING "Please set CMAKE_BUILD_TYPE to Release or Debug.")
+else()
+    message(STATUS "CMAKE_BUILD_TYPE is ${CMAKE_BUILD_TYPE}.")
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDebug")
+else()
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB:LIBCMTD")
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
+endif()
+
+add_compile_options("/utf-8")
+add_compile_definitions(UNICODE _UNICODE)
+add_subdirectory(src)

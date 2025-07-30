@@ -1,18 +1,14 @@
-/*
- * This example was used for putting items into the action in Lineage 2 MMORPG.
- */
-
 #include <iostream>
 #include <string>
 
-#include "mouse.h"
-#include "keyboard.h"
+#include "Mouse.h"
+#include "Keyboard.h"
 
 int main()
 {
     Mouse mouse;
     try {
-        mouse.initialize();
+        mouse.Initialize();
     } catch (const std::runtime_error &e) {
         std::cout << std::string("Mouse initialization: ") + e.what() << std::endl;
         return EXIT_FAILURE;
@@ -20,7 +16,7 @@ int main()
 
     Keyboard keyboard;
     try {
-        keyboard.initialize();
+        keyboard.Initialize();
     } catch (const std::runtime_error &e) {
         std::cout << std::string("Keyboard initialization: ") + e.what() << std::endl;
         return EXIT_FAILURE;
@@ -28,17 +24,20 @@ int main()
 
     Sleep(5000);
 
-    mouse.moveCursor(136, 271);
-    mouse.leftButtonClick();
+    mouse.MoveCursor(136, 271);
+
     Sleep(500);
-    mouse.moveCursor(56, 315);
-    mouse.leftButtonClick();
+
+    mouse.MoveCursor(56, 315);
+
     Sleep(500);
-    mouse.moveCursor(283, 350);
-    mouse.leftButtonClick();
+
+    mouse.MoveCursor(283, 350);
+
     Sleep(500);
-    mouse.moveCursor(275, 271);
-    mouse.leftButtonClick();
+
+    mouse.MoveCursor(275, 271);
+
     Sleep(500);
 
     return EXIT_SUCCESS;
